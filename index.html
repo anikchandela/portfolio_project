@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vihan Kamboj Portfolio</title>
+<style>
+
+body{
+  background-color: #e6f2ff;
+  font-family: Arial;
+  margin: 0px;
+}
+
+.top{
+background-color: #003366;
+color: white;
+padding: 25px;
+text-align: center;}
+
+.nav{
+  background-color: #0059b3;
+  padding: 10px;
+  text-align: center;}
+
+.nav button{
+background-color: #0059b3;
+color: white;
+border: 1px solid white;
+margin: 5px 8px;
+font-weight: bold;
+padding: 8px 14px;
+border-radius: 4px;
+cursor: pointer;}
+
+.nav button:hover{
+  background-color: #003366;}
+
+.box{
+     background-color: white;
+              width: 75%;
+             margin: 25px auto;
+             padding: 20px;
+       border: 2px solid #003366;
+  border-radius: 8px;}
+
+h2{
+color: #003366;}
+
+.btn{
+      background-color: #0059b3;
+         color: white;
+          padding: 8px 15px;
+border: none;
+       border-radius: 5px;
+     cursor: pointer;
+margin-top: 8px;}
+
+.btn:hover{
+  background-color: #003366;}
+
+input{
+    padding: 7px;
+     width: 60%;
+        border: 1px solid #003366;
+              border-radius: 4px;}
+
+.footer{
+     background-color: #003366;
+   color: white;
+    text-align: center;
+         padding: 12px;
+            margin-top: 30px;}
+
+@media screen and (max-width: 600px){
+  .nav button{
+    display: block;
+         width: 85%;
+    margin: 6px auto;}
+  .box{
+    width: 90%;}}
+
+</style>
+</head>
+
+<body>
+
+<div class="top">
+
+  <h1>Vihan Kamboj
+    
+  </h1>
+  <p>B.Tech 1st Year - CSE (Section E)</p>
+  <button class="btn" onclick="changeTheme()">
+    Switch Dark / Light Mode
+  </button>
+
+</div>
+
+<div class="nav">
+     <button onclick="openTab('about')">About Me
+     </button>
+    <button onclick="openTab('hobbies')">Hobbies
+
+    </button>
+   <button onclick="openTab('goal')">My Goal
+
+   </button>
+     <button onclick="openTab('msg')">Message Me
+      
+     </button>
+       <button onclick="showAll()">Show All</button>
+</div>
+
+<div class="box" id="about">
+<h2>About Me</h2>
+<p>Hi, my name is <b>Vihan Kamboj</b>. I am 18 years old and currently studying in 1st year B.Tech CSE, Section E. I am learning HTML, CSS and JavaScript right now and this is my personal portfolio webpage.</p>
+<button class="btn" onclick="showFact()">Click for a Fun Fact</button>
+<p id="factText" style="color: #0059b3; font-weight: bold;"></p>
+</div>
+
+<div class="box" id="hobbies" style="display: none;">
+  <h2>My Hobbies</h2>
+  <ul>
+    <li>Listening to 90s songs</li>
+    <li>Gymming and fitness</li>
+    <li>Travelling to new places</li>
+  </ul>
+</div>
+
+<div class="box" id="goal" style="display: none;">
+<h2>My Future Goal</h2>
+<p>My main goal in life is <b>Entrepreneurship</b>. I want to use my computer science knowledge to start my own business in the future.</p>
+</div>
+
+<div class="box" id="msg" style="display: none;">
+  <h2>Leave a Message</h2>
+  <input type="text" id="visitorName" placeholder="Enter your name...">
+  <button class="btn" onclick="sayHello()">Say Hi</button>
+  <p id="reply" style="margin-top: 10px; font-weight: bold;"></p>
+</div>
+
+<div class="footer">
+  <p>Made by Vihan Kamboj | Age: 18 | CSE-E</p>
+</div>
+
+<script>
+var dark = false;
+
+function openTab(tabName){
+  var boxes = document.getElementsByClassName("box");
+  for(var i=0; i<boxes.length; i++){
+    boxes[i].style.display = "none";
+  }
+  document.getElementById(tabName).style.display = "block";
+}
+
+function showAll(){
+  var boxes = document.getElementsByClassName("box");
+  for(var i=0; i<boxes.length; i++){
+    boxes[i].style.display = "block";
+  }
+}
+
+function changeTheme(){
+  var boxes = document.getElementsByClassName("box");
+  if(dark == false){
+    document.body.style.backgroundColor = "#1a1a1a";
+    for(var i=0; i<boxes.length; i++){
+      boxes[i].style.backgroundColor = "#2c2c2c";
+      boxes[i].style.color = "white";
+    }
+    dark = true;
+  }
+  else{
+    document.body.style.backgroundColor = "#e6f2ff";
+    for(var i=0; i<boxes.length; i++){
+      boxes[i].style.backgroundColor = "white";
+      boxes[i].style.color = "black";
+    }
+    dark = false;
+  }
+}
+
+function showFact(){
+  document.getElementById("factText").innerHTML = "Fun Fact: I never skip a gym session and 90s Bollywood songs are always on my playlist!";
+}
+
+function sayHello(){
+var name = document.getElementById("visitorName").value;
+if(name == ""){
+  alert("Please enter your name first!");
+}
+else{
+  document.getElementById("reply").innerHTML = "Thanks for visiting my portfolio, " + name + "!";
+}
+}
+</script>
+
+</body>
+</html>
